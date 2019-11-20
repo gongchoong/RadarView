@@ -9,10 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    let radarView = RadarView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.black
+    }
+    
+    override func viewDidLayoutSubviews() {
+        radarView.frame = CGRect(x: 0, y: 0, width: view.frame.width * 0.9, height: view.frame.width * 0.9)
+        radarView.center = view.center
+        radarView.loadLayer()
+        
+        view.addSubview(radarView)
     }
 
 

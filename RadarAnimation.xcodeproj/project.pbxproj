@@ -13,6 +13,8 @@
 		C03A7BBD238578C400C0A8B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03A7BBB238578C400C0A8B1 /* Main.storyboard */; };
 		C03A7BBF238578C800C0A8B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C03A7BBE238578C800C0A8B1 /* Assets.xcassets */; };
 		C03A7BC2238578C800C0A8B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03A7BC0238578C800C0A8B1 /* LaunchScreen.storyboard */; };
+		C03A7BCA238579CB00C0A8B1 /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A7BC9238579CB00C0A8B1 /* RadarView.swift */; };
+		C03A7BCC23859E7E00C0A8B1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A7BCB23859E7E00C0A8B1 /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		C03A7BBE238578C800C0A8B1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C03A7BC1238578C800C0A8B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C03A7BC3238578C800C0A8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C03A7BC9238579CB00C0A8B1 /* RadarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarView.swift; sourceTree = "<group>"; };
+		C03A7BCB23859E7E00C0A8B1 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +62,13 @@
 			children = (
 				C03A7BB5238578C400C0A8B1 /* AppDelegate.swift */,
 				C03A7BB7238578C400C0A8B1 /* SceneDelegate.swift */,
+				C03A7BC9238579CB00C0A8B1 /* RadarView.swift */,
 				C03A7BB9238578C400C0A8B1 /* ViewController.swift */,
 				C03A7BBB238578C400C0A8B1 /* Main.storyboard */,
 				C03A7BBE238578C800C0A8B1 /* Assets.xcassets */,
 				C03A7BC0238578C800C0A8B1 /* LaunchScreen.storyboard */,
 				C03A7BC3238578C800C0A8B1 /* Info.plist */,
+				C03A7BCB23859E7E00C0A8B1 /* Extension.swift */,
 			);
 			path = RadarAnimation;
 			sourceTree = "<group>";
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C03A7BCC23859E7E00C0A8B1 /* Extension.swift in Sources */,
 				C03A7BBA238578C400C0A8B1 /* ViewController.swift in Sources */,
 				C03A7BB6238578C400C0A8B1 /* AppDelegate.swift in Sources */,
 				C03A7BB8238578C400C0A8B1 /* SceneDelegate.swift in Sources */,
+				C03A7BCA238579CB00C0A8B1 /* RadarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
