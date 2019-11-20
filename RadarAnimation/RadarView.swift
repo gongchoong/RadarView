@@ -23,30 +23,7 @@ class RadarView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func loadLayer(){
-        backgroundColor = UIColor.black
-
-        beginAnimation()
-    }
-    
-    fileprivate func beginAnimation(){
-        layer.addSublayer(drawACircle(10))
-        layer.addSublayer(drawACircle(9))
-        layer.addSublayer(drawACircle(8))
-        layer.addSublayer(drawACircle(7))
-        layer.addSublayer(drawACircle(6))
-        layer.addSublayer(drawACircle(5))
-        layer.addSublayer(drawACircle(4))
-        layer.addSublayer(drawACircle(3))
-        layer.addSublayer(drawACircle(2))
-        layer.addSublayer(drawACircle(1))
-        drawARotatingLine()
-        layer.addSublayer(sweeper)
-        
-        animateSweeper()
-    }
-    
-    func drawACircle(_ i: Int) -> CAShapeLayer{
+    fileprivate func drawACircle(_ i: Int) -> CAShapeLayer{
         let centerPoint = CGPoint(x: frame.width/2 , y: frame.height/2)
         let radiusRatio = CGFloat(Double(i)/Double(10))
         let circularPath = UIBezierPath(arcCenter: centerPoint, radius: bounds.width/2 * radiusRatio, startAngle: -CGFloat.pi/2, endAngle: 2 * CGFloat.pi - CGFloat.pi/2, clockwise: true)
@@ -66,7 +43,40 @@ class RadarView: UIView {
         return circleLayer
     }
     
-    private func drawARotatingLine(){
+    fileprivate func drawAGridLine(_ degree: CGFloat) -> CAShapeLayer{
+        let linePath = UIBezierPath()
+        linePath.move(to: CGPoint(x: frame.width/2 , y: frame.height/2))
+        linePath.addLine(to: findCoordinatesForGridLine(degree))
+        
+        let gridLineLayer = setGridLineLayer()
+        gridLineLayer.path = linePath.cgPath
+        return gridLineLayer
+    }
+    
+    fileprivate func findCoordinatesForGridLine(_ degree: CGFloat) -> CGPoint{
+        let centerPoint = CGPoint(x: frame.width/2 , y: frame.height/2)
+        let centerX = centerPoint.x
+        let centerY = centerPoint.y
+        let radius = bounds.width/2
+        let xValue = radius * cos(degreeToRadian(degree))
+        let yValue = radius * sin(degreeToRadian(degree))
+
+        return CGPoint(x: centerX + xValue, y: centerY + yValue)
+    }
+    
+    fileprivate func degreeToRadian(_ degree: CGFloat) -> CGFloat{
+        return degree * CGFloat.pi / CGFloat(180)
+    }
+    
+    fileprivate func setGridLineLayer() -> CAShapeLayer {
+        let gridLineLayer = CAShapeLayer()
+        gridLineLayer.lineWidth = 0.5
+        gridLineLayer.opacity = 0.8
+        gridLineLayer.strokeColor = UIColor.rgb(red: 57, green: 255, blue: 20).cgColor
+        return gridLineLayer
+    }
+    
+    fileprivate func drawASweeper(){
         sweeper.frame = self.bounds
         sweeper.strokeColor = UIColor.rgb(red: 57, green: 255, blue: 20).cgColor
         sweeper.lineWidth = 1
@@ -77,7 +87,7 @@ class RadarView: UIView {
         sweeper.path = linePath.cgPath
     }
     
-    private func animateSweeper() {
+    fileprivate func animateSweeper() {
         let foregroundAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
         foregroundAnimation.fromValue = 0
         foregroundAnimation.toValue = CGFloat(360.0) * CGFloat.pi / CGFloat(180.0)
@@ -85,6 +95,66 @@ class RadarView: UIView {
         foregroundAnimation.repeatCount = .greatestFiniteMagnitude
         
         sweeper.add(foregroundAnimation, forKey: "foregroundAnimation")
+    }
+    
+    func loadLayer(){
+        backgroundColor = UIColor.black
+        drawASweeper()
+        
+        layer.addSublayer(drawACircle(10))
+        layer.addSublayer(drawACircle(9))
+        layer.addSublayer(drawACircle(8))
+        layer.addSublayer(drawACircle(7))
+        layer.addSublayer(drawACircle(6))
+        layer.addSublayer(drawACircle(5))
+        layer.addSublayer(drawACircle(4))
+        layer.addSublayer(drawACircle(3))
+        layer.addSublayer(drawACircle(2))
+        layer.addSublayer(drawACircle(1))
+        layer.addSublayer(drawAGridLine(10))
+        layer.addSublayer(drawAGridLine(20))
+        layer.addSublayer(drawAGridLine(30))
+        layer.addSublayer(drawAGridLine(40))
+        layer.addSublayer(drawAGridLine(50))
+        layer.addSublayer(drawAGridLine(60))
+        layer.addSublayer(drawAGridLine(70))
+        layer.addSublayer(drawAGridLine(80))
+        layer.addSublayer(drawAGridLine(90))
+        layer.addSublayer(drawAGridLine(100))
+        layer.addSublayer(drawAGridLine(110))
+        layer.addSublayer(drawAGridLine(120))
+        layer.addSublayer(drawAGridLine(130))
+        layer.addSublayer(drawAGridLine(140))
+        layer.addSublayer(drawAGridLine(150))
+        layer.addSublayer(drawAGridLine(160))
+        layer.addSublayer(drawAGridLine(170))
+        layer.addSublayer(drawAGridLine(180))
+        layer.addSublayer(drawAGridLine(190))
+        layer.addSublayer(drawAGridLine(200))
+        layer.addSublayer(drawAGridLine(210))
+        layer.addSublayer(drawAGridLine(220))
+        layer.addSublayer(drawAGridLine(230))
+        layer.addSublayer(drawAGridLine(240))
+        layer.addSublayer(drawAGridLine(250))
+        layer.addSublayer(drawAGridLine(260))
+        layer.addSublayer(drawAGridLine(270))
+        layer.addSublayer(drawAGridLine(280))
+        layer.addSublayer(drawAGridLine(290))
+        layer.addSublayer(drawAGridLine(300))
+        layer.addSublayer(drawAGridLine(310))
+        layer.addSublayer(drawAGridLine(320))
+        layer.addSublayer(drawAGridLine(330))
+        layer.addSublayer(drawAGridLine(340))
+        layer.addSublayer(drawAGridLine(350))
+        layer.addSublayer(drawAGridLine(360))
+        layer.addSublayer(sweeper)
+        
+        beginAnimation()
+    }
+    
+    fileprivate func beginAnimation(){
+        
+        animateSweeper()
     }
     
 }
