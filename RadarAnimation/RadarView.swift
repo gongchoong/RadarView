@@ -26,11 +26,22 @@ class RadarView: UIView {
         layer.addSublayer(BackgroundGrid(centerPoint, radius))
         layer.addSublayer(Sweeper(centerPoint, radius, bounds))
         
-        for _ in 1...5 {
-            layer.addSublayer(Point(startingPoint: getARandomPoint(centerPoint, radius)))
+        generatePoints()
+    }
+    
+    func generatePoints(){
+        Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(everySecond), userInfo: nil, repeats: true)
+    }
+    
+    @objc func everySecond(){
+        if generatingANewPoint(){
+            let centerPoint = CGPoint(x: frame.width/2 , y: frame.height/2)
+            let radius: CGFloat = bounds.width/2
+            let center = getARandomPoint(centerPoint, radius)
+            let repeated = CGFloat.random(in: 1..<11)
+            
+            layer.addSublayer(Point(startingPoint: center, repeated: repeated))
         }
-        
-        print(centerPoint)
     }
     
     func getARandomPoint(_ center: CGPoint,_ rad: CGFloat) -> CGPoint{
@@ -39,10 +50,16 @@ class RadarView: UIView {
 
         let x = CGFloat(r * cos(a))
         let y = CGFloat(r * sin(a))
-        let point = CGPoint(x: x, y: y)
-        print(point)
 
         return CGPoint(x: center.x + x, y: center.y + y)
     }
     
+    fileprivate func generatingANewPoint() -> Bool {
+        let generate = Int.random(in: 0..<5)
+        if generate < 1{
+            return true
+        }else{
+            return false
+        }
+    }
 }
