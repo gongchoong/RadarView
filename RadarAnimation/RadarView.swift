@@ -19,11 +19,11 @@ class RadarView: UIView {
     }
     
     func loadLayer(){
-        backgroundColor = UIColor.black
+        backgroundColor = UIColor.clear
         let centerPoint = CGPoint(x: frame.width/2 , y: frame.height/2)
         let radius: CGFloat = bounds.width/2
         
-        layer.addSublayer(BackgroundGrid(centerPoint, radius))
+        layer.addSublayer(RadarGrid(centerPoint, radius))
         layer.addSublayer(Sweeper(centerPoint, radius, bounds))
         
         generatePoints()
@@ -51,7 +51,25 @@ class RadarView: UIView {
         let x = CGFloat(r * cos(a))
         let y = CGFloat(r * sin(a))
 
-        return CGPoint(x: center.x + x, y: center.y + y)
+        return checkIfPointIsInsideOfInnermostCircle(CGPoint(x: center.x + x, y: center.y + y))
+    }
+    
+    fileprivate func checkIfPointIsInsideOfInnermostCircle(_ point: CGPoint) -> CGPoint{
+        let center = CGPoint(x: frame.width/2 , y: frame.height/2)
+        let radius: CGFloat = bounds.width/2
+        let radiusOfInnermostCircle = radius * 0.1
+        
+        let distance = sqrt((pow(center.x - point.x, 2) + pow(center.y - point.y, 2)))
+        //distance between the center and the point must be greater than radius of the innermost circle
+        
+        if radiusOfInnermostCircle > distance{
+            //generated point is within the innermost circle
+            //return a new point outside of the innermost circle
+            return CGPoint(x: point.x + radiusOfInnermostCircle, y: point.y + radiusOfInnermostCircle)
+        }else{
+            //generated point is outside of the innermost circle
+            return point
+        }
     }
     
     fileprivate func generatingANewPoint() -> Bool {

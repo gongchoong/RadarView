@@ -14,3 +14,7 @@ extension UIColor {
         return UIColor(red: r/255, green: g/255, blue: b/255, alpha: 1)
     }
 }
+
+func degreeToRadian(_ degree: CGFloat) -> CGFloat{
+    return degree * CGFloat.pi / CGFloat(180)
+}

@@ -11,25 +11,39 @@ import UIKit
 class Sweeper: CAShapeLayer {
     var center: CGPoint = CGPoint(x: 0, y: 0)
     var radius: CGFloat = 0
+    var innermostRadius: CGFloat = 0
     
     init(_ point: CGPoint, _ rad: CGFloat, _ rect: CGRect) {
         super.init()
-        strokeColor = UIColor.rgb(red: 57, green: 255, blue: 20).cgColor
-        lineWidth = 1
         
         center = point
         radius = rad
+        innermostRadius = radius * 0.1
         frame = rect
+        
+        strokeColor = UIColor.clear.cgColor
+        fillColor = UIColor.green.withAlphaComponent(0.2).cgColor
         
         setSweeperLayer()
     }
     
     fileprivate func setSweeperLayer(){
+        //leave the innermost circle empty
+        //draw a pizza slice with a bite taken out
         let linePath = UIBezierPath()
-        linePath.move(to: CGPoint(x: frame.width/2, y: frame.height/2))
-        linePath.addLine(to: CGPoint(x: frame.width/2, y: 0))
+        linePath.move(to: CGPoint(x: center.x, y: center.y + (radius * 0.1)))
+        linePath.addLine(to: CGPoint(x: center.x, y: frame.height))
+        linePath.addArc(withCenter: center, radius: radius, startAngle: degreeToRadian(90.0), endAngle: degreeToRadian(110.0), clockwise: true)
+        
+        let x = center.x + (radius * 0.1 * cos(degreeToRadian(110.0)))
+        let y = center.y + (radius * 0.1 * sin(degreeToRadian(110.0)))
+        
+        linePath.addLine(to: CGPoint(x: x, y: y))
+        linePath.addArc(withCenter: center, radius: innermostRadius, startAngle: degreeToRadian(110.0), endAngle: degreeToRadian(90.0), clockwise: false)
+        linePath.close()
         
         path = linePath.cgPath
+        
         animateSweeper()
     }
     

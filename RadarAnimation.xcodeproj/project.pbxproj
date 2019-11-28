@@ -15,9 +15,10 @@
 		C03A7BC2238578C800C0A8B1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03A7BC0238578C800C0A8B1 /* LaunchScreen.storyboard */; };
 		C03A7BCA238579CB00C0A8B1 /* RadarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A7BC9238579CB00C0A8B1 /* RadarView.swift */; };
 		C03A7BCC23859E7E00C0A8B1 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C03A7BCB23859E7E00C0A8B1 /* Extension.swift */; };
-		C0B4C0972387042700483EE7 /* BackgroundGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4C0962387042700483EE7 /* BackgroundGrid.swift */; };
+		C0B4C0972387042700483EE7 /* RadarGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4C0962387042700483EE7 /* RadarGrid.swift */; };
 		C0B4C0992387044B00483EE7 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4C0982387044B00483EE7 /* Point.swift */; };
 		C0B4C09B238708D800483EE7 /* Sweeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0B4C09A238708D800483EE7 /* Sweeper.swift */; };
+		C0D7773723901EC40030554F /* BackgroundGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0D7773623901EC40030554F /* BackgroundGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,9 +32,10 @@
 		C03A7BC3238578C800C0A8B1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C03A7BC9238579CB00C0A8B1 /* RadarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarView.swift; sourceTree = "<group>"; };
 		C03A7BCB23859E7E00C0A8B1 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
-		C0B4C0962387042700483EE7 /* BackgroundGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGrid.swift; sourceTree = "<group>"; };
+		C0B4C0962387042700483EE7 /* RadarGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadarGrid.swift; sourceTree = "<group>"; };
 		C0B4C0982387044B00483EE7 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		C0B4C09A238708D800483EE7 /* Sweeper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sweeper.swift; sourceTree = "<group>"; };
+		C0D7773623901EC40030554F /* BackgroundGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +72,8 @@
 				C03A7BB7238578C400C0A8B1 /* SceneDelegate.swift */,
 				C03A7BB9238578C400C0A8B1 /* ViewController.swift */,
 				C03A7BC9238579CB00C0A8B1 /* RadarView.swift */,
-				C0B4C0962387042700483EE7 /* BackgroundGrid.swift */,
+				C0D7773623901EC40030554F /* BackgroundGrid.swift */,
+				C0B4C0962387042700483EE7 /* RadarGrid.swift */,
 				C0B4C09A238708D800483EE7 /* Sweeper.swift */,
 				C0B4C0982387044B00483EE7 /* Point.swift */,
 				C03A7BBB238578C400C0A8B1 /* Main.storyboard */,
@@ -154,12 +157,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03A7BCC23859E7E00C0A8B1 /* Extension.swift in Sources */,
-				C0B4C0972387042700483EE7 /* BackgroundGrid.swift in Sources */,
+				C0B4C0972387042700483EE7 /* RadarGrid.swift in Sources */,
 				C03A7BBA238578C400C0A8B1 /* ViewController.swift in Sources */,
 				C0B4C09B238708D800483EE7 /* Sweeper.swift in Sources */,
 				C03A7BB6238578C400C0A8B1 /* AppDelegate.swift in Sources */,
 				C0B4C0992387044B00483EE7 /* Point.swift in Sources */,
 				C03A7BB8238578C400C0A8B1 /* SceneDelegate.swift in Sources */,
+				C0D7773723901EC40030554F /* BackgroundGrid.swift in Sources */,
 				C03A7BCA238579CB00C0A8B1 /* RadarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

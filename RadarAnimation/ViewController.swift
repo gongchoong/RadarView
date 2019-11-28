@@ -23,6 +23,7 @@ class ViewController: UIViewController {
         radarView.loadLayer()
         
         view.addSubview(radarView)
+        view.layer.insertSublayer(BackgroundGrid(), at: 0)
     }
 
 
