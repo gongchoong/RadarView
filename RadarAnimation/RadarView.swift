@@ -29,7 +29,7 @@ class RadarView: UIView {
         generatePoints()
     }
     
-    func generatePoints(){
+    fileprivate func generatePoints(){
         Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(everySecond), userInfo: nil, repeats: true)
     }
     
@@ -44,7 +44,7 @@ class RadarView: UIView {
         }
     }
     
-    func getARandomPoint(_ center: CGPoint,_ rad: CGFloat) -> CGPoint{
+    fileprivate func getARandomPoint(_ center: CGPoint,_ rad: CGFloat) -> CGPoint{
         let a = Double.random(in: 0..<1) * Double(2.0) * Double.pi
         let r = Double(rad) * sqrt(Double.random(in: 0..<1))
 
